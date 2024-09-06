@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MakingShop">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMakeShopTB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:title="@string/app_name"
+        app:titleTextColor="@color/toolbar_text_color"
+        tools:ignore="MissingClass,MissingConstraints" />
+
+    <LinearLayout
+        android:id="@+id/itemIconLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/input_area_margine_horizontal"
+        android:layout_marginVertical="@dimen/list_item_margine_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/inputIconIV"
+            android:layout_width="@dimen/input_icon_size"
+            android:layout_height="@dimen/input_icon_size"
+            android:src="@drawable/baseline_production_quantity_limits_24"
+            android:tag="false" />
+
+        <LinearLayout
+            android:id="@+id/inputNameLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarMakeShopTB"
+            app:layout_constraintVertical_bias="0.01">
+
+            <EditText
+                android:id="@+id/inputNameET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/input_name_hint"
+                android:textSize="@dimen/input_text_size" />
+
+            <EditText
+                android:id="@+id/inputPriceET"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/input_price_hint"
+                android:textSize="@dimen/input_text_size" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/saveItemBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/button_margine_horizontal"
+        android:layout_marginTop="@dimen/button_save_item_top"
+        android:backgroundTint="@color/toolbar_text_color"
+        android:text="@string/save_item_text"
+        app:layout_constraintTop_toBottomOf="@+id/inputNAmeAndPriceLL" />
+
+    <ListView
+        android:id="@+id/productListLV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/list_item" />
+</LinearLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center|top"
+
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMainTB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:title="@string/app_name"
+        app:titleTextColor="@color/toolbar_text_color"
+        tools:ignore="MissingClass,MissingConstraints" />
+
+    <Button
+        android:id="@+id/makeShopBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/button_make_shop_top"
+        android:backgroundTint="@color/toolbar_text_color"
+        android:text="@string/make_shop_text"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarMainTB" />
+
+</LinearLayout>

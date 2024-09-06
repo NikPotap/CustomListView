@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/listItemRL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/input_area_margine_horizontal">
+
+        <LinearLayout
+            android:id="@+id/itemIconLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/list_item_margine_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/itemIconIV"
+                android:layout_width="@dimen/list_item_icon_size"
+                android:layout_height="@dimen/list_item_icon_size"
+                android:src="@drawable/baseline_production_quantity_limits_24"/>
+
+            <LinearLayout
+                android:id="@+id/itemFeaturesLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/list_item_description_margine_left"
+                android:orientation="vertical"
+                android:gravity="right">
+
+                <TextView
+                    android:id="@+id/itemNameTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Заглушка - наименование"
+                    android:textSize="@dimen/list_item_name_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/itemPriceTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Заглушка - цена"
+                    android:textSize="@dimen/list_item_price_text_size"
+                    android:layout_alignParentRight="true" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

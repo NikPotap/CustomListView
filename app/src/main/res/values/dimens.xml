@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_make_shop_top">50dp</dimen>
+    <dimen name="button_save_item_top">10dp</dimen>
+    <dimen name="button_margine_horizontal">20dp</dimen>
+    <dimen name="input_area_margine_horizontal">10dp</dimen>
+    <dimen name="input_text_size">20sp</dimen>
+    <dimen name="input_icon_size">100dp</dimen>
+    <dimen name="list_item_margine_vertical">10dp</dimen>
+    <dimen name="list_item_icon_size">80dp</dimen>
+    <dimen name="list_item_name_text_size">20sp</dimen>
+    <dimen name="list_item_price_text_size">16sp</dimen>
+    <dimen name="list_item_description_margine_left">15dp</dimen>
+</resources>
