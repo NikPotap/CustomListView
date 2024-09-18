@@ -4,8 +4,10 @@
     <dimen name="button_save_item_top">10dp</dimen>
     <dimen name="button_margine_horizontal">20dp</dimen>
     <dimen name="input_area_margine_horizontal">10dp</dimen>
+    <dimen name="item_out_text_size">25sp</dimen>
     <dimen name="input_text_size">20sp</dimen>
     <dimen name="input_icon_size">100dp</dimen>
+    <dimen name="item_out_icon_size">250dp</dimen>
     <dimen name="list_item_margine_vertical">10dp</dimen>
     <dimen name="list_item_icon_size">80dp</dimen>
     <dimen name="list_item_name_text_size">20sp</dimen>

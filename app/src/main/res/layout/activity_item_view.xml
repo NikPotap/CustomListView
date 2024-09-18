@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="@dimen/input_area_margine_horizontal"
+    android:layout_marginVertical="@dimen/list_item_margine_vertical"
+    android:orientation="vertical"
+    tools:context=".ItemView">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarItemViewTB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:title="@string/app_name"
+        app:titleTextColor="@color/toolbar_text_color"
+        tools:ignore="MissingClass,MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/itemIconIV"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_out_icon_size"
+        android:src="@drawable/baseline_production_quantity_limits_24"
+        android:tag="false" />
+
+    <TextView
+        android:id="@+id/itemNameTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/input_name_hint"
+        android:layout="@+id/itemIconIV"
+        android:textSize="@dimen/item_out_text_size"
+        android:textStyle="bold"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/itemPriceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/input_price_hint"
+            android:textSize="@dimen/input_text_size"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/itemDescriptionTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/input_description_hint"
+            android:textSize="@dimen/input_text_size"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+</LinearLayout>

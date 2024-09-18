@@ -1,37 +1,36 @@
 package com.example.customlistview
 
-import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.AdapterView
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.ListAdapter
 import android.widget.ListView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import java.io.IOException
 
 class MakingShop : AppCompatActivity() {
     private val GALLERY_REQUEST = 1448729
-    var bitmap: Bitmap? = null
-    var products: MutableList<ProductList> = mutableListOf()
+    private var imageUri: Uri? = null
+    private var products: MutableList<ProductList> = mutableListOf()
+
+    private lateinit var listAdapter: ProductsAdapter
     private lateinit var toolbarMakeShopTB: Toolbar
     private lateinit var inputIconIV: ImageView
     private lateinit var inputNameET: EditText
     private lateinit var inputPriceET: EditText
     private lateinit var saveItemBTN: Button
     private lateinit var productListLV: ListView
+    private lateinit var inputDescriptionET: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,17 +52,26 @@ class MakingShop : AppCompatActivity() {
             closeKeyboard(View)
             val productName = inputNameET.text.toString()
             val productPrice = inputPriceET.text.toString()
+            val productDescription = inputDescriptionET.text.toString()
             if (testOfData(this, productName, productPrice, inputIconIV.tag.toString()) == false) return@setOnClickListener
-            val productImage = bitmap
-            products.add(ProductList(productName, productPrice + " ₽", productImage))
-            val listAdapter = ProductsAdapter(this@MakingShop, products)
+            val productImage = imageUri.toString()
+            products.add(ProductList(productName, productPrice + " ₽", productImage, productDescription))
             productListLV.adapter = listAdapter
             listAdapter.notifyDataSetChanged()
             inputNameET.text.clear()
             inputPriceET.text.clear()
+            inputDescriptionET.text.clear()
             inputIconIV.setImageResource(R.drawable.baseline_production_quantity_limits_24)
             inputIconIV.setTag("false")
+            //imageUri = null
         }
+        productListLV.onItemClickListener =
+            AdapterView.OnItemClickListener { parent, v, position, id ->
+                val item = listAdapter.getItem(position)
+                val intent = Intent(this, ItemView::class.java)
+                intent.putExtra(ProductList::class.java.simpleName, item)
+                startActivity(intent)
+            }
     }
 
     private fun setVariables() {
@@ -74,6 +82,8 @@ class MakingShop : AppCompatActivity() {
         inputPriceET = findViewById(R.id.inputPriceET)
         saveItemBTN = findViewById(R.id.saveItemBTN)
         productListLV = findViewById(R.id.productListLV)
+        inputDescriptionET = findViewById(R.id.inputDescriptionET)
+        listAdapter = ProductsAdapter(this@MakingShop, products)
     }
 
     private fun closeKeyboard(View: View) {
@@ -87,13 +97,8 @@ class MakingShop : AppCompatActivity() {
         inputIconIV = findViewById(R.id.inputIconIV)
         when (requestCode){
             GALLERY_REQUEST -> if (resultCode === RESULT_OK){
-                val selPic: Uri? = data?.data
-                try {
-                    bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selPic)
-                } catch (e: IOException) {
-                    e.printStackTrace()
-                }
-                inputIconIV.setImageBitmap(bitmap)
+                imageUri = data?.data
+                inputIconIV.setImageURI(imageUri)
                 inputIconIV.setTag("true")
             }
         }

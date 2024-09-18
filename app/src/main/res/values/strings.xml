@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">Магазин продуктов</string>
     <string name="title_text">МАГАЗИН ПРОДУКТОВ</string>
-    <string name="make_shop_text">Создать магазин</string>
-    <string name="save_item_text">Сохранить запись</string>
+    <string name="make_shop_button_text">СОЗДАТЬ МАГАЗИН</string>
+    <string name="save_item_button_text">СОХРАНИТЬ ЗАПИСЬ</string>
+    <string name="back_button_text">ВЕРНУТЬСЯ</string>
     <string name="input_name_hint">наименование товара</string>
     <string name="input_price_hint">стоимость товара</string>
+    <string name="input_description_hint">краткое описание товара</string>
     <string name="error_null">Одно или оба поля не заполнены</string>
     <string name="error_not_digit">Вводите цену целым числом</string>
     <string name="error_not_pict">Изображение не выбрано</string>
